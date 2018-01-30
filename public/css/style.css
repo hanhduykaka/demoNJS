@@ -1,0 +1,132 @@
+.cursor-pointer{
+    cursor: pointer;
+}
+#content_chat_group{
+border: solid black 1px;
+width: 500px;
+height: 500px;
+overflow-y: auto;
+}
+#chat_input{
+    width: 451px;
+}
+#form input[type="submit"]{
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
+
+#lstFriend{
+    height: 300px;
+    overflow-y: auto;
+}
+/* //form chat */
+
+.form_chat_1 {
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    z-index: 999;
+    width: 250px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 5px #aaa;
+    border-radius: 5px 5px 0 0;
+    background: #ffffff;
+}
+.form_chat_2 {
+    position: fixed;
+    bottom: 5px;
+    right: 265px;
+    z-index: 999;
+    width: 250px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 5px #aaa;
+    border-radius: 5px 5px 0 0;
+    background: #ffffff;
+}
+.form_chat_3 {
+    position: fixed;
+    bottom: 5px;
+    right: 520px;
+    z-index: 999;
+    width: 250px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 5px #aaa;
+    border-radius: 5px 5px 0 0;
+    background: #ffffff;
+}
+.form_chat_4 {
+    position: fixed;
+    bottom: 5px;
+    right: 775px;
+    z-index: 999;
+    width: 250px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 5px #aaa;
+    border-radius: 5px 5px 0 0;
+    background: #ffffff;
+}
+.tieu_de {
+   
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 5px 5px 0 0;
+}
+.tieu_de_active {
+    background: #0077ff;
+  
+}
+.tieu_de_normal{
+    background: #ff8800;
+}
+
+.component_tin_nhan {
+    height: 300px;
+    overflow: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.thong_tin_tin_nhan {
+    background: #229999;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px 5px 0 5px;
+    float: right;
+}
+
+.noi_dung_tin {
+    width: 98%;
+    margin: 1%;
+    padding: 5px;
+}
+
+.noi_dung_tin textarea {
+    width: 100%;
+}
+
+.btn_gui_tin_nhan {
+    width: 98%;
+    margin: 1%;
+}
+
+.thong_tin_tra_loi {
+    background: #de4509;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px 5px 0 5px;
+    float: left;
+    /* margin-top: 35px; */
+}
+
+.hien-div-chat{
+    opacity: 1;
+    display: block
+}
+.an-div-chat{
+    opacity: 0;
+    display: none
+}
+/* form chat */

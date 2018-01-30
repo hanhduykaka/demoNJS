@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script src="/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2 id="h_welcome">Hello World!</h2>
+
+    <h3 id="h_Name">Hello World!</h3>
+    <div id="future"></div>
+    <h1 id="lblTotal">0</h1>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <form id="form" id="chat_form">
+                <div id="content_chat_group"></div>
+                <input id="chat_input" type="text">
+                <input type="submit" value="Chat">
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div id="lstFriend">
+            </div>
+        </div>
+    </div>
+
+    <div class="cac_form_chat">
+        <div class="form_chat_1 hidden form_chat">
+            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
+            <div class="content-tin-nhan" data-id="id">
+                <div class="component_tin_nhan">
+                </div>
+                <div class="noi_dung_tin">
+                    <textarea class="txtMsg"></textarea>
+                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form_chat_2 hidden form_chat">
+            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
+            <div class="content-tin-nhan">
+                <div class="component_tin_nhan">
+
+                </div>
+                <div class="noi_dung_tin">
+                    <textarea class="txtMsg"></textarea>
+
+                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form_chat_3 hidden form_chat">
+            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
+            <div class="content-tin-nhan">
+                <div class="component_tin_nhan">
+
+                </div>
+                <div class="noi_dung_tin">
+                    <textarea class="txtMsg"></textarea>
+
+                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form_chat_4 hidden form_chat">
+            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
+            <div class="content-tin-nhan">
+                <div class="component_tin_nhan">
+
+                </div>
+                <div class="noi_dung_tin">
+                    <textarea class="txtMsg"></textarea>
+                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>  
+    var _thisId = "";
+    var _tongSoBanDangChat = 0;
+
+    var _mang_BanDangChat = [];
+    var _mang_BanDangChat_Tong = [];
+
+    $(document).ready(function () {
+        socket.on('broad', function (data) {
+            $("#h_Name").html("Id của bạn là: " + data);
+            _thisId = data;
+        });
+        setTimeout(function () {
+            socket.on('listUser', function (data) {
+                console.log(data);
+                var array = data;
+                var index = array.indexOf(_thisId);
+                console.log(_thisId);
+                console.log(index);
+
+                if (index > -1) {
+                    array.splice(index, 1);
+                }
+                console.log(array);
+            });
+
+        }, 500);
+        $("#content_chat_group").animate({ scrollTop: $("#content_chat_group")[0].scrollHeight }, "fast");
+    });
+
+
+    // socket io
+    var socket = io.connect('http://localhost:3000');
+    socket.on('connect', function (data) {
+        socket.emit('join', 'Hello World from client');
+
+    });
+    socket.on('messages', function (data) {
+        console.log(data);
+    });
+
+    socket.on('broadcast', function (data) {
+        $("#h_welcome").html(data);
+    });
+    socket.on('getCount', function (data) {
+        $("#lblTotal").html(data);
+    });
+
+    socket.on('ban_be_vua_online', function (data) {
+        var html = '<p class="cursor-pointer" id="' + data + '"> ';
+        html += '<a onclick=fnChatWithFriend(this) data-id="' + data + '"> Bạn: ' + data + ' đã online </a>';
+        html += ' </p>';
+        $("#lstFriend").append(html);
+    });
+
+    socket.on('ban_be_vua_offline', function (data) {
+
+        $("#lstFriend").find("#" + data).remove();
+
+    });
+
+    socket.on('chat-phan-hoi', function (data) {
+        console.log(data);
+    });
+    socket.on('phan-hoi-messages-group', function (data) {
+        var html = "";
+        html += '<p>' + data + ' </p>';
+        $("#content_chat_group").append(html);
+        // socket.emit('send-messages-group', message);  
+        $("#content_chat_group").animate({ scrollTop: $("#content_chat_group")[0].scrollHeight }, "fast");
+    });
+
+    socket.on('respone-msg-from-server-to-client', function (id, msg) {
+        console.log(id + ": " + msg);
+        XuLyMangDangChat(id);
+        XuLyAnHienDivChat(id);
+        var dtas = $(".cac_form_chat").find('.form_chat[data-id =' + id + ']');
+        var div_appendTo = dtas.find(".component_tin_nhan");
+
+        //   console.log();
+        appendMsg(msg, div_appendTo, 'thong_tin_tra_loi');
+
+    });
+
+    //end socket io
+
+
+    // jquery 
+    $('form').submit(function (e) {
+        e.preventDefault();
+        console.log("this=" + _thisId);
+        var message = $('#chat_input').val();
+        var html = "";
+        html += '<p>' + _thisId + ': ' + message + ' </p>';
+        $("#content_chat_group").append(html);
+        socket.emit('send-messages-group', message);
+        $('#chat_input').val("");
+        $("#content_chat_group").animate({ scrollTop: $("#content_chat_group")[0].scrollHeight }, "fast");
+
+    });
+
+    function fnChatWithFriend(ev) {
+        var id = $(ev).attr("data-id");
+        if (_mang_BanDangChat_Tong.length < 1) {
+            _tongSoBanDangChat++;
+            _mang_BanDangChat_Tong.push(id);
+        }
+        else {
+            if ($.inArray(id, _mang_BanDangChat_Tong) != -1) {
+                // tồn tại trong mảng rồi
+            }
+            else {
+                _tongSoBanDangChat++;
+                _mang_BanDangChat_Tong.push(id);
+            }
+        }
+
+        socket.emit('ChatWithFriend', id);
+        XuLyMangDangChat(id);
+        XuLyAnHienDivChat(id);
+    }
+
+    function XuLyMangDangChat(id) {
+        if (_mang_BanDangChat.length < 1) {
+
+            _mang_BanDangChat.push(id);
+        }
+        else if (_mang_BanDangChat.length < 4) {
+            if ($.inArray(id, _mang_BanDangChat) != -1) {
+                // tồn tại trong mảng rồi
+            }
+            else {
+
+                _mang_BanDangChat.push(id);
+            }
+        }
+        else if (_mang_BanDangChat.length = 4) {
+            if ($.inArray(id, _mang_BanDangChat) != -1) {
+                // tồn tại trong mảng rồi
+            }
+            else {
+                _mang_BanDangChat.splice(0, 1);
+                _mang_BanDangChat.push(id);
+            }
+        }
+    }
+
+    function
+    XuLyAnHienDivChat(id) {
+        for (var i = 0; i < _mang_BanDangChat.length; i++) {
+            var stt = i + 1;
+            $(".form_chat_" + stt).removeClass("hidden").addClass("show");
+            $(".form_chat_" + stt + " " + ".tieu_de").html(_mang_BanDangChat[i]);
+            $(".form_chat_" + stt).attr("data-id", _mang_BanDangChat[i]);
+            if (_mang_BanDangChat[i] == id) {
+                $(".form_chat_" + stt + " " + ".tieu_de").removeClass("tieu_de_normal").addClass("tieu_de_active");
+                $(".form_chat_" + stt).find("textarea").focus();
+            }
+            else
+                $(".form_chat_" + stt + " " + ".tieu_de").removeClass("tieu_de_active").addClass("tieu_de_normal");
+        }
+    }
+
+    function chat_mat_click(ev) {
+        var id = $(ev).closest(".form_chat").attr("data-id");
+        var message = $(ev).parent().find("textarea").val();
+        var div_appendTo = $(ev).closest(".form_chat").find(".component_tin_nhan");
+
+        appendMsg(message, div_appendTo, 'thong_tin_tin_nhan');
+
+
+        $(ev).parent().find("textarea").val("");
+        $(".component_tin_nhan").animate({ scrollTop: $(".component_tin_nhan")[0].scrollHeight }, "fast");
+        socket.emit('send-msg-from-client-to', id, message);
+        // socket.emit()
+    }
+
+    $(".txtMsg")
+        .keypress(function (ev) {
+            if (ev.keyCode == 13) {
+                var id = $(this).closest(".form_chat").attr("data-id");
+                var div_appendTo = $(this).closest(".form_chat").find(".component_tin_nhan");
+                var message = ev.target.value;
+
+                appendMsg(message, div_appendTo, 'thong_tin_tin_nhan');
+                ev.target.value = "";
+                $(".component_tin_nhan").animate({ scrollTop: $(".component_tin_nhan")[0].scrollHeight }, "fast");
+                socket.emit('send-msg-from-client-to', id, message);
+            }
+        });
+
+
+    function appendMsg(message, div_appendTo, class_style) {
+        $('<div/>') // create div 
+            .html(message) // set html content
+            .attr({
+                class: class_style
+            })
+            .appendTo(div_appendTo);
+
+        $('<div/>') // create div 
+            .html("") // set html content
+            .attr({
+                style: 'clear:both;'
+            })
+            .appendTo(div_appendTo);
+        $(".component_tin_nhan").animate({ scrollTop: $(".component_tin_nhan")[0].scrollHeight }, "fast");
+
+    }
+  // jquery
+
+
+
+  //jquery event
+  $(".tieu_de").click(function(ev){
+      console.log(ev);
+     if($(this).closest(".formchat").find(".content-tin-nhan").hasClass("hien-div-chat")) 
+     {
+         console.log("if")
+        $(this).closest(".formchat")
+        .find(".content-tin-nhan").removeClass("hien-div-chat").addClass("an-div-chat");
+     }
+     else{
+        console.log("else")
+         console.log( $(this).closest(".formchat").attr("data-id"));
+       
+        $(this).closest(".formchat")
+        .find(".content-tin-nhan").removeClass("an-div-chat").addClass("hien-div-chat");
+     }
+  })
+  //
+
+</script>
