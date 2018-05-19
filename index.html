@@ -10,156 +10,189 @@
 </head>
 
 <body>
-    <h2 id="h_welcome">Hello World!</h2>
-
-    <h3 id="h_Name">Hello World!</h3>
-    <div id="future"></div>
-    <h1 id="lblTotal">0</h1>
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <form id="form" id="chat_form">
-                <div id="content_chat_group"></div>
-                <input id="chat_input" type="text">
-                <input type="submit" value="Chat">
-            </form>
+    <div class="after-login hidden">
+        <h2 id="h_welcome">Hello World!</h2>
+        <h3 id="h_Name">Hello World!</h3>
+        <div id="future"></div>
+        <h1 id="lblTotal">0</h1>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <form id="form" id="chat_form">
+                    <div id="content_chat_group"></div>
+                    <input id="chat_input" type="text">
+                    <input type="submit" value="Chat">
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div id="lstFriend">
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <div id="lstFriend">
+        <div class="cac_form_chat">
+            <div class="form_chat_1 hidden form_chat">
+                <div class="tieu_de tieu_de_normal cursor-pointer">Hãy chat với chúng tôi</div>
+                <div class="content-tin-nhan hien-div-chat" data-id="id">
+                    <div class="component_tin_nhan">
+                    </div>
+                    <div class="noi_dung_tin">
+                        <textarea class="txtMsg"></textarea>
+                        <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_chat_2 hidden form_chat">
+                <div class="tieu_de tieu_de_normal cursor-pointer">Hãy chat với chúng tôi</div>
+                <div class="content-tin-nhan hien-div-chat">
+                    <div class="component_tin_nhan">
+
+                    </div>
+                    <div class="noi_dung_tin">
+                        <textarea class="txtMsg"></textarea>
+
+                        <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_chat_3 hidden form_chat">
+                <div class="tieu_de tieu_de_normal cursor-pointer">Hãy chat với chúng tôi</div>
+                <div class="content-tin-nhan hien-div-chat">
+                    <div class="component_tin_nhan">
+
+                    </div>
+                    <div class="noi_dung_tin">
+                        <textarea class="txtMsg"></textarea>
+
+                        <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_chat_4 hidden form_chat">
+                <div class="tieu_de tieu_de_normal cursor-pointer">Hãy chat với chúng tôi</div>
+                <div class="content-tin-nhan hien-div-chat">
+                    <div class="component_tin_nhan">
+
+                    </div>
+                    <div class="noi_dung_tin">
+                        <textarea class="txtMsg"></textarea>
+                        <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="before-login">
+        <div class="container-fluid">
+            <div class="col-md-12 div-connect">
+
+                <div class="col-md-4">
+                    <span class="width-100" style="text-align: right">
+                                            Email:
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" placeholder="Email" class="width-100 txtEmail">
+                </div>
+                <div class="col-md-2">
+                    <input type="button" value="Connect" class="btn_connect">
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="cac_form_chat">
-        <div class="form_chat_1 hidden form_chat">
-            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
-            <div class="content-tin-nhan" data-id="id">
-                <div class="component_tin_nhan">
-                </div>
-                <div class="noi_dung_tin">
-                    <textarea class="txtMsg"></textarea>
-                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="form_chat_2 hidden form_chat">
-            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
-            <div class="content-tin-nhan">
-                <div class="component_tin_nhan">
-
-                </div>
-                <div class="noi_dung_tin">
-                    <textarea class="txtMsg"></textarea>
-
-                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="form_chat_3 hidden form_chat">
-            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
-            <div class="content-tin-nhan">
-                <div class="component_tin_nhan">
-
-                </div>
-                <div class="noi_dung_tin">
-                    <textarea class="txtMsg"></textarea>
-
-                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="form_chat_4 hidden form_chat">
-            <div class="tieu_de tieu_de_normal">Hãy chat với chúng tôi</div>
-            <div class="content-tin-nhan">
-                <div class="component_tin_nhan">
-
-                </div>
-                <div class="noi_dung_tin">
-                    <textarea class="txtMsg"></textarea>
-                    <button type="button" onclick="chat_mat_click(this)" class="btn btn-success btn_gui_tin_nhan">Gửi tin nhắn</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
 </body>
 
 </html>
-<script>  
+<script>
     var _thisId = "";
     var _tongSoBanDangChat = 0;
 
     var _mang_BanDangChat = [];
     var _mang_BanDangChat_Tong = [];
+    // socket io
+    var socket = io.connect('http://localhost:5000');
 
-    $(document).ready(function () {
-        socket.on('broad', function (data) {
+    $(document).ready(function() {
+        socket.on('broad', function(data) {
             $("#h_Name").html("Id của bạn là: " + data);
             _thisId = data;
         });
-        setTimeout(function () {
-            socket.on('listUser', function (data) {
-                console.log(data);
-                var array = data;
-                var index = array.indexOf(_thisId);
-                console.log(_thisId);
-                console.log(index);
 
-                if (index > -1) {
-                    array.splice(index, 1);
-                }
-                console.log(array);
-            });
+        $("#content_chat_group").animate({
+            scrollTop: $("#content_chat_group")[0].scrollHeight
+        }, "fast");
 
-        }, 500);
-        $("#content_chat_group").animate({ scrollTop: $("#content_chat_group")[0].scrollHeight }, "fast");
     });
 
 
-    // socket io
-    var socket = io.connect('http://localhost:3000');
-    socket.on('connect', function (data) {
+    $(".btn_connect").click((e) => {
+        var element = $(e.currentTarget);
+        var parent = element.closest(".div-connect");
+        var emailInput = parent.find(".txtEmail");
+        socket.emit('submit_Email', emailInput.val());
+
+    });
+
+    socket.on('resendEmailToClient', function(listObjUser) {
+        $(".after-login").removeClass("hidden");
+        $(".before-login").addClass("hidden");
+
+    });
+
+
+
+
+
+
+    socket.on('connect', function(data) {
         socket.emit('join', 'Hello World from client');
-
     });
-    socket.on('messages', function (data) {
+
+    socket.on('listUser', function(data) {
+        data = data.filter(x => x != _thisId);
+        showListFriendsOnline(data);
+    });
+
+    socket.on('AllUser', function(data) {
+        showListFriendsOnline(data);
+    });
+
+    socket.on('messages', function(data) {
         console.log(data);
     });
 
-    socket.on('broadcast', function (data) {
+    socket.on('broadcast', function(data) {
         $("#h_welcome").html(data);
     });
-    socket.on('getCount', function (data) {
+
+    socket.on('getCount', function(data) {
         $("#lblTotal").html(data);
     });
 
-    socket.on('ban_be_vua_online', function (data) {
-        var html = '<p class="cursor-pointer" id="' + data + '"> ';
-        html += '<a onclick=fnChatWithFriend(this) data-id="' + data + '"> Bạn: ' + data + ' đã online </a>';
-        html += ' </p>';
-        $("#lstFriend").append(html);
-    });
 
-    socket.on('ban_be_vua_offline', function (data) {
 
+    socket.on('ban_be_vua_offline', function(data) {
         $("#lstFriend").find("#" + data).remove();
-
     });
 
-    socket.on('chat-phan-hoi', function (data) {
+    socket.on('chat-phan-hoi', function(data) {
         console.log(data);
     });
-    socket.on('phan-hoi-messages-group', function (data) {
+    socket.on('phan-hoi-messages-group', function(data) {
         var html = "";
         html += '<p>' + data + ' </p>';
         $("#content_chat_group").append(html);
         // socket.emit('send-messages-group', message);  
-        $("#content_chat_group").animate({ scrollTop: $("#content_chat_group")[0].scrollHeight }, "fast");
+        $("#content_chat_group").animate({
+            scrollTop: $("#content_chat_group")[0].scrollHeight
+        }, "fast");
     });
 
-    socket.on('respone-msg-from-server-to-client', function (id, msg) {
+    socket.on('respone-msg-from-server-to-client', function(id, msg) {
         console.log(id + ": " + msg);
         XuLyMangDangChat(id);
         XuLyAnHienDivChat(id);
@@ -175,7 +208,7 @@
 
 
     // jquery 
-    $('form').submit(function (e) {
+    $('form').submit(function(e) {
         e.preventDefault();
         console.log("this=" + _thisId);
         var message = $('#chat_input').val();
@@ -184,21 +217,33 @@
         $("#content_chat_group").append(html);
         socket.emit('send-messages-group', message);
         $('#chat_input').val("");
-        $("#content_chat_group").animate({ scrollTop: $("#content_chat_group")[0].scrollHeight }, "fast");
+        $("#content_chat_group").animate({
+            scrollTop: $("#content_chat_group")[0].scrollHeight
+        }, "fast");
 
     });
+
+    function showListFriendsOnline(array) {
+        if (array) {
+            $("#lstFriend").empty();
+            array.forEach(element => {
+                var html = '<p class="cursor-pointer" id="' + element + '"> ';
+                html += '<a onclick=fnChatWithFriend(this) data-id="' + element + '"> Bạn: ' + element + ' đã online </a>';
+                html += ' </p>';
+                $("#lstFriend").append(html);
+            });
+        }
+    }
 
     function fnChatWithFriend(ev) {
         var id = $(ev).attr("data-id");
         if (_mang_BanDangChat_Tong.length < 1) {
             _tongSoBanDangChat++;
             _mang_BanDangChat_Tong.push(id);
-        }
-        else {
+        } else {
             if ($.inArray(id, _mang_BanDangChat_Tong) != -1) {
                 // tồn tại trong mảng rồi
-            }
-            else {
+            } else {
                 _tongSoBanDangChat++;
                 _mang_BanDangChat_Tong.push(id);
             }
@@ -213,21 +258,17 @@
         if (_mang_BanDangChat.length < 1) {
 
             _mang_BanDangChat.push(id);
-        }
-        else if (_mang_BanDangChat.length < 4) {
+        } else if (_mang_BanDangChat.length < 4) {
             if ($.inArray(id, _mang_BanDangChat) != -1) {
                 // tồn tại trong mảng rồi
-            }
-            else {
+            } else {
 
                 _mang_BanDangChat.push(id);
             }
-        }
-        else if (_mang_BanDangChat.length = 4) {
+        } else if (_mang_BanDangChat.length = 4) {
             if ($.inArray(id, _mang_BanDangChat) != -1) {
                 // tồn tại trong mảng rồi
-            }
-            else {
+            } else {
                 _mang_BanDangChat.splice(0, 1);
                 _mang_BanDangChat.push(id);
             }
@@ -244,8 +285,9 @@
             if (_mang_BanDangChat[i] == id) {
                 $(".form_chat_" + stt + " " + ".tieu_de").removeClass("tieu_de_normal").addClass("tieu_de_active");
                 $(".form_chat_" + stt).find("textarea").focus();
-            }
-            else
+                $(".form_chat_" + stt + " " + ".content-tin-nhan")
+                    .removeClass("an-div-chat").addClass("hien-div-chat");
+            } else
                 $(".form_chat_" + stt + " " + ".tieu_de").removeClass("tieu_de_active").addClass("tieu_de_normal");
         }
     }
@@ -259,13 +301,15 @@
 
 
         $(ev).parent().find("textarea").val("");
-        $(".component_tin_nhan").animate({ scrollTop: $(".component_tin_nhan")[0].scrollHeight }, "fast");
+        $(".component_tin_nhan").animate({
+            scrollTop: $(".component_tin_nhan")[0].scrollHeight
+        }, "fast");
         socket.emit('send-msg-from-client-to', id, message);
         // socket.emit()
     }
 
     $(".txtMsg")
-        .keypress(function (ev) {
+        .keypress(function(ev) {
             if (ev.keyCode == 13) {
                 var id = $(this).closest(".form_chat").attr("data-id");
                 var div_appendTo = $(this).closest(".form_chat").find(".component_tin_nhan");
@@ -273,7 +317,9 @@
 
                 appendMsg(message, div_appendTo, 'thong_tin_tin_nhan');
                 ev.target.value = "";
-                $(".component_tin_nhan").animate({ scrollTop: $(".component_tin_nhan")[0].scrollHeight }, "fast");
+                $(".component_tin_nhan").animate({
+                    scrollTop: $(".component_tin_nhan")[0].scrollHeight
+                }, "fast");
                 socket.emit('send-msg-from-client-to', id, message);
             }
         });
@@ -293,30 +339,27 @@
                 style: 'clear:both;'
             })
             .appendTo(div_appendTo);
-        $(".component_tin_nhan").animate({ scrollTop: $(".component_tin_nhan")[0].scrollHeight }, "fast");
+        $(".component_tin_nhan").animate({
+            scrollTop: $(".component_tin_nhan")[0].scrollHeight
+        }, "fast");
 
     }
-  // jquery
+    // jquery
 
 
 
-  //jquery event
-  $(".tieu_de").click(function(ev){
-      console.log(ev);
-     if($(this).closest(".formchat").find(".content-tin-nhan").hasClass("hien-div-chat")) 
-     {
-         console.log("if")
-        $(this).closest(".formchat")
-        .find(".content-tin-nhan").removeClass("hien-div-chat").addClass("an-div-chat");
-     }
-     else{
-        console.log("else")
-         console.log( $(this).closest(".formchat").attr("data-id"));
-       
-        $(this).closest(".formchat")
-        .find(".content-tin-nhan").removeClass("an-div-chat").addClass("hien-div-chat");
-     }
-  })
-  //
-
+    //jquery event
+    $(".tieu_de").click(function(ev) {
+            if ($(this).closest(".form_chat").find(".content-tin-nhan").hasClass("hien-div-chat")) {
+                $(this).closest(".form_chat")
+                    .find(".content-tin-nhan").removeClass("hien-div-chat").addClass("an-div-chat");
+                $(this).removeClass("tieu_de_active").addClass("tieu_de_normal");
+            } else {
+                $(this).closest(".form_chat")
+                    .find(".content-tin-nhan").removeClass("an-div-chat").addClass("hien-div-chat");
+                $(this).closest(".form_chat").find("textarea").focus();
+                $(this).removeClass("tieu_de_normal").addClass("tieu_de_active");
+            }
+        })
+        //
 </script>

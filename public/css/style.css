@@ -1,25 +1,30 @@
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
 }
-#content_chat_group{
-border: solid black 1px;
-width: 500px;
-height: 500px;
-overflow-y: auto;
+
+#content_chat_group {
+    border: solid black 1px;
+    width: 500px;
+    height: 500px;
+    overflow-y: auto;
 }
-#chat_input{
+
+#chat_input {
     width: 451px;
 }
-#form input[type="submit"]{
+
+#form input[type="submit"] {
     color: white;
     background-color: green;
     cursor: pointer;
 }
 
-#lstFriend{
+#lstFriend {
     height: 300px;
     overflow-y: auto;
 }
+
+
 /* //form chat */
 
 .form_chat_1 {
@@ -33,6 +38,7 @@ overflow-y: auto;
     border-radius: 5px 5px 0 0;
     background: #ffffff;
 }
+
 .form_chat_2 {
     position: fixed;
     bottom: 5px;
@@ -44,6 +50,7 @@ overflow-y: auto;
     border-radius: 5px 5px 0 0;
     background: #ffffff;
 }
+
 .form_chat_3 {
     position: fixed;
     bottom: 5px;
@@ -55,6 +62,7 @@ overflow-y: auto;
     border-radius: 5px 5px 0 0;
     background: #ffffff;
 }
+
 .form_chat_4 {
     position: fixed;
     bottom: 5px;
@@ -66,18 +74,19 @@ overflow-y: auto;
     border-radius: 5px 5px 0 0;
     background: #ffffff;
 }
+
 .tieu_de {
-   
     padding: 5px 10px;
     font-weight: bold;
     color: #ffffff;
     border-radius: 5px 5px 0 0;
 }
+
 .tieu_de_active {
     background: #0077ff;
-  
 }
-.tieu_de_normal{
+
+.tieu_de_normal {
     background: #ff8800;
 }
 
@@ -121,12 +130,19 @@ overflow-y: auto;
     /* margin-top: 35px; */
 }
 
-.hien-div-chat{
+.hien-div-chat {
     opacity: 1;
     display: block
 }
-.an-div-chat{
+
+.an-div-chat {
     opacity: 0;
     display: none
 }
+
+
 /* form chat */
+
+.width-100 {
+    width: 100%;
+}
