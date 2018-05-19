@@ -86,4 +86,4 @@ io.on('connection', function(client) {
     //client.broadcast.to(client.i).emit('message', 'for your eyes only');
 
 });
-server.listen(5000);
+server.listen(process.env.PORT || 5000);
