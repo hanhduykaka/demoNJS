@@ -15,7 +15,7 @@
 <body>
     <div class="after-login hidden">
         <h2 id="h_welcome">Hello World!</h2>
-        <h3 id="h_Name">Hello World!</h3>
+        <p id="h_Name">Hello World!</p>
         <div id="future"></div>
         <h1 id="lblTotal">0</h1>
         <div class="col-md-12">
@@ -90,14 +90,14 @@
 
     <div class="before-login">
         <div class="container-fluid">
-            <div class="col-md-12 div-connect">
+            <div class="row div-connect">
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <span class="width-100" style="text-align: right">
-                                            Email:
+                                           YourName or Email:
                     </span>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <input type="text" placeholder="Email" class="width-100 txtEmail">
                 </div>
                 <div class="col-md-2">
@@ -117,7 +117,8 @@
     var _mang_BanDangChat = [];
     var _mang_BanDangChat_Tong = [];
     // socket io
-    var socket = io.connect('https://njstaintt2.herokuapp.com/');
+    // var socket = io.connect('https://njstaintt2.herokuapp.com/');
+    var socket = io.connect('http://localhost:5000');
 
     $(document).ready(function() {
         socket.on('broad', function(data) {
@@ -137,7 +138,7 @@
         var parent = element.closest(".div-connect");
         var emailInput = parent.find(".txtEmail");
         socket.emit('submit_Email', emailInput.val());
-
+        $("#h_Name").prepend("Chào: " + "<b><mark>" + emailInput.val() + "</mark></b>" + "<br>");
     });
 
     socket.on('resendEmailToClient', function(listObjUser) {

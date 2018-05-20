@@ -24,6 +24,7 @@ io.on('connection', function(client) {
         "Chào mừng các bạn đã đến với trò chơi chat trực tuyến của 24/7");
 
     Object.keys(io.engine.clients)
+
     client.emit('broad', client.id);
 
     client.on('join', function(data) {
@@ -31,6 +32,7 @@ io.on('connection', function(client) {
         listUser = Object.keys(io.engine.clients);
         var temLstUserToBroadCast = [];
         temLstUserToBroadCast = listUser.filter(x => x != client.id);
+
         client.broadcast.emit('listUser', listUser);
         client.emit('AllUser', temLstUserToBroadCast);
     });
@@ -39,12 +41,16 @@ io.on('connection', function(client) {
         if (listObjUser.length > 0) {
             var checkExist = listObjUser.find(x => x.Email == email);
             if (!checkExist) {
-                listObjUser.push({ Email: email, SocketId: client.id });
+                listObjUser.push({ Email: email, SocketId: [client.id] });
+            } else {
+
+                checkExist.SocketId = checkExist.SocketId.concat([client.id]);
+
             }
         } else {
-            listObjUser.push({ Email: email, SocketId: client.id });
+            listObjUser.push({ Email: email, SocketId: [client.id] });
         }
-        console.log(listObjUser);
+
         client.emit('resendEmailToClient', listObjUser => {});
     });
 
